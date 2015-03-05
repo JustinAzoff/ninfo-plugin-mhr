@@ -1,4 +1,7 @@
 from ninfo import PluginBase
+import socket
+
+ROOT = ".malware.hash.cymru.com"
 
 class mhr_plug(PluginBase):
     """"""
@@ -12,7 +15,7 @@ class mhr_plug(PluginBase):
         pass
 
     def get_info(self, arg):
-        host = arg + root
+        host = arg + ROOT
         try:
             #The docs say it will only ever return 127.0.0.2, but it doesn't hurt to be explicit
             return socket.gethostbyname(host)=='127.0.0.2'
